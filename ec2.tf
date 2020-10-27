@@ -35,7 +35,7 @@ variable "root_iops" {
 variable "instance_type" {
   description = "Instance type"
   type        = string
-  default     = "t3.small"
+  default     = "t3a.small"
 }
 
 variable "public_key_path" {

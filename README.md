@@ -53,7 +53,7 @@ No issue is creating limit on this module.
 | create\_sg | Bool for create security group | `bool` | `true` | no |
 | domain\_name | n/a | `string` | n/a | yes |
 | endpoint\_url | API endpoint to sync off of - can be citizen node or leave blank for solidwallet.io | `string` | `""` | no |
-| instance\_type | Instance type | `string` | `"t3.small"` | no |
+| instance\_type | Instance type | `string` | `"t3a.small"` | no |
 | key\_name | The key pair to import - leave blank to generate new keypair from pub/priv ssh key path | `string` | `""` | no |
 | keystore\_password | The password to the keystore | `string` | `""` | no |
 | keystore\_path | The path to the keystore | `string` | `""` | no |
