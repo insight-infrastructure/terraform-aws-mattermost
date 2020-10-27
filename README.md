@@ -5,7 +5,8 @@
 
 ## Features
 
-This module sets up a mattermost server on AWS with SSL. 
+This module sets up a mattermost server on AWS with SSL. Be sure to change the `vars.yaml.example` with own secure
+ passwords and change reference per example 
 
 ## Terraform Versions
 
@@ -24,6 +25,9 @@ module "defaults" {
   private_key_path = var.private_key_path
 
   domain_name = "insight-infra.de"  # Use your domain / subdomain 
+  
+  vars_file = 
+
 }
 ```
 ## Examples
@@ -74,7 +78,7 @@ No issue is creating limit on this module.
 | subnet\_id | The id of the subnet | `string` | `""` | no |
 | switch\_ip\_internally | Bool to switch ip internally | `bool` | `false` | no |
 | tags | Map of tags | `map(string)` | `{}` | no |
-| vars\_file | Path to vars file | `string` | `"vars.yaml.example"` | no |
+| vars\_file | Path to vars file | `string` | `""` | no |
 | vpc\_id | Custom vpc id - leave blank for deault | `string` | `""` | no |
 
 ## Outputs

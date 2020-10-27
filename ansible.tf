@@ -80,7 +80,11 @@ variable "bastion_ip" {
 variable "vars_file" {
   description = "Path to vars file"
   type        = string
-  default     = "vars.yaml.example"
+  default     = ""
+}
+
+locals {
+  vars_file = var.vars_file == "" ? "${path.module}/vars.yaml.example" : var.vars_file
 }
 
 module "ansible" {
@@ -94,7 +98,7 @@ module "ansible" {
   //  bastion_user = var.bastion_user
 
   playbook_file_path = "${path.module}/ansible/main.yml"
-  playbook_vars      = merge(yamldecode(file("${path.module}/${var.vars_file}")), { ansible_fqdn = aws_route53_record.this.fqdn }, var.playbook_vars)
+  playbook_vars      = merge(yamldecode(file(local.vars_file)), { ansible_fqdn = aws_route53_record.this.fqdn }, var.playbook_vars)
 
   //  requirements_file_path = "${path.module}/ansible/requirements.yml"
 }
