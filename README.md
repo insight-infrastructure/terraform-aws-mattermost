@@ -1,11 +1,11 @@
 # terraform-aws-mattermost
 
-[![open-issues](https://img.shields.io/github/issues-raw/insight-infra/terraform-aws-mattermost?style=for-the-badge)](https://github.com/insight-infra/terraform-aws-mattermost/issues)
-[![open-pr](https://img.shields.io/github/issues-pr-raw/insight-infra/terraform-aws-mattermost?style=for-the-badge)](https://github.com/insight-infra/terraform-aws-mattermost/pulls)
+[![open-issues](https://img.shields.io/github/issues-raw/insight-infrastructure/terraform-aws-mattermost?style=for-the-badge)](https://github.com/insight-infrastructure/terraform-aws-mattermost/issues)
+[![open-pr](https://img.shields.io/github/issues-pr-raw/insight-infrastructure/terraform-aws-mattermost?style=for-the-badge)](https://github.com/insight-infrastructure/terraform-aws-mattermost/pulls)
 
 ## Features
 
-This module...
+This module sets up a mattermost server on AWS with SSL. 
 
 ## Terraform Versions
 
@@ -14,13 +14,21 @@ For Terraform v0.12.0+
 ## Usage
 
 ```hcl
-module "this" {
-  source = "github.com/insight-infra/terraform-aws-mattermost"
+variable "public_key_path" {}
+variable "private_key_path" {}
+
+module "defaults" {
+  source = "../.."
+
+  public_key_path  = var.public_key_path
+  private_key_path = var.private_key_path
+
+  domain_name = "insight-infra.de"  # Use your domain / subdomain 
 }
 ```
 ## Examples
 
-- [defaults](https://github.com/insight-infra/terraform-aws-mattermost/tree/master/examples/defaults)
+- [defaults](https://github.com/insight-infrastructure/terraform-aws-mattermost/tree/master/examples/defaults)
 
 ## Known  Issues
 No issue is creating limit on this module.
@@ -88,7 +96,7 @@ To run them:
 
 ## Authors
 
-Module managed by [insight-infra](https://github.com/insight-infra)
+Module managed by [insight-infrastructure](https://github.com/insight-infrastructure)
 
 ## Credits
 
